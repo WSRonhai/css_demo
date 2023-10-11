@@ -1,0 +1,96 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #dcdcdc;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#clock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+#clock section {
+  width: 80px;
+  height: 120px;
+  position: relative;
+  -webkit-perspective: 200px;
+          perspective: 200px;
+}
+#clock section div {
+  position: absolute;
+}
+#clock section div::before, #clock section div::after {
+  width: 80px;
+  height: 60px;
+  display: block;
+  color: white;
+  font: bold 120px arial;
+  border-radius: 6px;
+  overflow: hidden;
+  line-height: 120px;
+  text-align: center;
+  background-color: #a01b5e;
+}
+#clock section div::before {
+  content: attr(data-after);
+}
+#clock section div::after {
+  content: attr(data-before);
+  line-height: 0;
+}
+#clock section div:nth-child(2) {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  width: 80px;
+  height: 60px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+#clock section div:nth-child(2)::before {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+  line-height: 0;
+}
+#clock section div:nth-child(2)::after {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  line-height: 120px;
+}
+#clock section:hover div:nth-child(2) {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+}
+#clock p::after {
+  display: block;
+  content: ":";
+  width: 20px;
+  height: 120px;
+  -webkit-transform: translateX(-10px);
+          transform: translateX(-10px);
+  font: bold 120px arial;
+  height: 120px;
+  line-height: 120px;
+  text-align: center;
+  color: #a01b5e;
+}
